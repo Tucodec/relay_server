@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FEE80AB5-40E5-7518-F554-DA72B89E03AE}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>run-tests</RootNamespace>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Locals">
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
+  <ImportGroup Label="ExtensionSettings"/>
+  <ImportGroup Label="PropertySheets">
+    <Import Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props"/>
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros"/>
+  <PropertyGroup>
+    <ExecutablePath>$(ExecutablePath);$(MSBuildProjectDirectory)\.\bin\;$(MSBuildProjectDirectory)\.\bin\</ExecutablePath>
+    <IntDir>$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)</TargetName>
+    <TargetPath>$(OutDir)\$(ProjectName)$(TargetExt)</TargetPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <OmitFramePointers>false</OmitFramePointers>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>advapi32.lib;iphlpapi.lib;psapi.lib;shell32.lib;user32.lib;userenv.lib;ws2_32.lib</AdditionalDependencies>
+      <AllowIsolation>true</AllowIsolation>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>$(OutDir)$(ProjectName)$(TargetExt)</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;DEBUG;_DEBUG;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <WarningLevel>Level3</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+    </ClCompile>
+    <Lib>
+      <AdditionalOptions>/LTCG %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+    <Link>
+      <AdditionalDependencies>advapi32.lib;iphlpapi.lib;psapi.lib;shell32.lib;user32.lib;userenv.lib;ws2_32.lib</AdditionalDependencies>
+      <AllowIsolation>true</AllowIsolation>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)$(ProjectName)$(TargetExt)</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="uv.gyp"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="test\runner.h"/>
+    <ClInclude Include="test\task.h"/>
+    <ClInclude Include="test\test-list.h"/>
+    <ClInclude Include="test\runner-win.h"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="test\blackhole-server.c"/>
+    <ClCompile Include="test\echo-server.c"/>
+    <ClCompile Include="test\run-tests.c"/>
+    <ClCompile Include="test\runner.c"/>
+    <ClCompile Include="test\test-get-loadavg.c"/>
+    <ClCompile Include="test\test-active.c"/>
+    <ClCompile Include="test\test-async.c"/>
+    <ClCompile Include="test\test-async-null-cb.c"/>
+    <ClCompile Include="test\test-callback-stack.c"/>
+    <ClCompile Include="test\test-callback-order.c"/>
+    <ClCompile Include="test\test-close-fd.c"/>
+    <ClCompile Include="test\test-close-order.c"/>
+    <ClCompile Include="test\test-connection-fail.c"/>
+    <ClCompile Include="test\test-cwd-and-chdir.c"/>
+    <ClCompile Include="test\test-default-loop-close.c"/>
+    <ClCompile Include="test\test-delayed-accept.c"/>
+    <ClCompile Include="test\test-eintr-handling.c"/>
+    <ClCompile Include="test\test-error.c"/>
+    <ClCompile Include="test\test-embed.c"/>
+    <ClCompile Include="test\test-emfile.c"/>
+    <ClCompile Include="test\test-fail-always.c"/>
+    <ClCompile Include="test\test-fs.c"/>
+    <ClCompile Include="test\test-fs-event.c"/>
+    <ClCompile Include="test\test-get-currentexe.c"/>
+    <ClCompile Include="test\test-get-memory.c"/>
+    <ClCompile Include="test\test-get-passwd.c"/>
+    <ClCompile Include="test\test-getaddrinfo.c"/>
+    <ClCompile Include="test\test-getnameinfo.c"/>
+    <ClCompile Include="test\test-getsockname.c"/>
+    <ClCompile Include="test\test-handle-fileno.c"/>
+    <ClCompile Include="test\test-homedir.c"/>
+    <ClCompile Include="test\test-hrtime.c"/>
+    <ClCompile Include="test\test-idle.c"/>
+    <ClCompile Include="test\test-ip6-addr.c"/>
+    <ClCompile Include="test\test-ipc.c"/>
+    <ClCompile Include="test\test-ipc-send-recv.c"/>
+    <ClCompile Include="test\test-loop-handles.c"/>
+    <ClCompile Include="test\test-loop-alive.c"/>
+    <ClCompile Include="test\test-loop-close.c"/>
+    <ClCompile Include="test\test-loop-stop.c"/>
+    <ClCompile Include="test\test-loop-time.c"/>
+    <ClCompile Include="test\test-loop-configure.c"/>
+    <ClCompile Include="test\test-walk-handles.c"/>
+    <ClCompile Include="test\test-watcher-cross-stop.c"/>
+    <ClCompile Include="test\test-multiple-listen.c"/>
+    <ClCompile Include="test\test-osx-select.c"/>
+    <ClCompile Include="test\test-pass-always.c"/>
+    <ClCompile Include="test\test-ping-pong.c"/>
+    <ClCompile Include="test\test-pipe-bind-error.c"/>
+    <ClCompile Include="test\test-pipe-connect-error.c"/>
+    <ClCompile Include="test\test-pipe-connect-multiple.c"/>
+    <ClCompile Include="test\test-pipe-connect-prepare.c"/>
+    <ClCompile Include="test\test-pipe-getsockname.c"/>
+    <ClCompile Include="test\test-pipe-pending-instances.c"/>
+    <ClCompile Include="test\test-pipe-sendmsg.c"/>
+    <ClCompile Include="test\test-pipe-server-close.c"/>
+    <ClCompile Include="test\test-pipe-close-stdout-read-stdin.c"/>
+    <ClCompile Include="test\test-pipe-set-non-blocking.c"/>
+    <ClCompile Include="test\test-platform-output.c"/>
+    <ClCompile Include="test\test-poll.c"/>
+    <ClCompile Include="test\test-poll-close.c"/>
+    <ClCompile Include="test\test-poll-close-doesnt-corrupt-stack.c"/>
+    <ClCompile Include="test\test-poll-closesocket.c"/>
+    <ClCompile Include="test\test-process-title.c"/>
+    <ClCompile Include="test\test-queue-foreach-delete.c"/>
+    <ClCompile Include="test\test-ref.c"/>
+    <ClCompile Include="test\test-run-nowait.c"/>
+    <ClCompile Include="test\test-run-once.c"/>
+    <ClCompile Include="test\test-semaphore.c"/>
+    <ClCompile Include="test\test-shutdown-close.c"/>
+    <ClCompile Include="test\test-shutdown-eof.c"/>
+    <ClCompile Include="test\test-shutdown-twice.c"/>
+    <ClCompile Include="test\test-signal.c"/>
+    <ClCompile Include="test\test-signal-multiple-loops.c"/>
+    <ClCompile Include="test\test-socket-buffer-size.c"/>
+    <ClCompile Include="test\test-spawn.c"/>
+    <ClCompile Include="test\test-fs-poll.c"/>
+    <ClCompile Include="test\test-stdio-over-pipes.c"/>
+    <ClCompile Include="test\test-tcp-alloc-cb-fail.c"/>
+    <ClCompile Include="test\test-tcp-bind-error.c"/>
+    <ClCompile Include="test\test-tcp-bind6-error.c"/>
+    <ClCompile Include="test\test-tcp-close.c"/>
+    <ClCompile Include="test\test-tcp-close-accept.c"/>
+    <ClCompile Include="test\test-tcp-close-while-connecting.c"/>
+    <ClCompile Include="test\test-tcp-create-socket-early.c"/>
+    <ClCompile Include="test\test-tcp-connect-error-after-write.c"/>
+    <ClCompile Include="test\test-tcp-shutdown-after-write.c"/>
+    <ClCompile Include="test\test-tcp-flags.c"/>
+    <ClCompile Include="test\test-tcp-connect-error.c"/>
+    <ClCompile Include="test\test-tcp-connect-timeout.c"/>
+    <ClCompile Include="test\test-tcp-connect6-error.c"/>
+    <ClCompile Include="test\test-tcp-open.c"/>
+    <ClCompile Include="test\test-tcp-write-to-half-open-connection.c"/>
+    <ClCompile Include="test\test-tcp-write-after-connect.c"/>
+    <ClCompile Include="test\test-tcp-writealot.c"/>
+    <ClCompile Include="test\test-tcp-write-fail.c"/>
+    <ClCompile Include="test\test-tcp-try-write.c"/>
+    <ClCompile Include="test\test-tcp-unexpected-read.c"/>
+    <ClCompile Include="test\test-tcp-oob.c"/>
+    <ClCompile Include="test\test-tcp-read-stop.c"/>
+    <ClCompile Include="test\test-tcp-write-queue-order.c"/>
+    <ClCompile Include="test\test-threadpool.c"/>
+    <ClCompile Include="test\test-threadpool-cancel.c"/>
+    <ClCompile Include="test\test-thread-equal.c"/>
+    <ClCompile Include="test\test-tmpdir.c"/>
+    <ClCompile Include="test\test-mutexes.c"/>
+    <ClCompile Include="test\test-thread.c"/>
+    <ClCompile Include="test\test-barrier.c"/>
+    <ClCompile Include="test\test-condvar.c"/>
+    <ClCompile Include="test\test-timer-again.c"/>
+    <ClCompile Include="test\test-timer-from-check.c"/>
+    <ClCompile Include="test\test-timer.c"/>
+    <ClCompile Include="test\test-tty.c"/>
+    <ClCompile Include="test\test-udp-alloc-cb-fail.c"/>
+    <ClCompile Include="test\test-udp-bind.c"/>
+    <ClCompile Include="test\test-udp-create-socket-early.c"/>
+    <ClCompile Include="test\test-udp-dgram-too-big.c"/>
+    <ClCompile Include="test\test-udp-ipv6.c"/>
+    <ClCompile Include="test\test-udp-open.c"/>
+    <ClCompile Include="test\test-udp-options.c"/>
+    <ClCompile Include="test\test-udp-send-and-recv.c"/>
+    <ClCompile Include="test\test-udp-send-immediate.c"/>
+    <ClCompile Include="test\test-udp-send-unreachable.c"/>
+    <ClCompile Include="test\test-udp-multicast-join.c"/>
+    <ClCompile Include="test\test-udp-multicast-join6.c"/>
+    <ClCompile Include="test\test-dlerror.c"/>
+    <ClCompile Include="test\test-udp-multicast-ttl.c"/>
+    <ClCompile Include="test\test-ip4-addr.c"/>
+    <ClCompile Include="test\test-udp-multicast-interface.c"/>
+    <ClCompile Include="test\test-udp-multicast-interface6.c"/>
+    <ClCompile Include="test\test-udp-try-send.c"/>
+    <ClCompile Include="test\runner-win.c"/>
+    <ClCompile Include="src\win\snprintf.c"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="libuv.vcxproj">
+      <Project>{33066374-88CB-CB8D-15DA-61032886329A}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
+  <ImportGroup Label="ExtensionTargets"/>
+</Project>
