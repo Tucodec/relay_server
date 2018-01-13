@@ -83,3 +83,5 @@ virtual bool ValidateOnLogin(uint32_t uid1, uint32_t sessionId, std::string *url
 ## 其他说明
 测试服务器已开放，IP地址是：203.76.212.115，端口是12345.为了避免串流，请大家连接测试服务器的时候，UserID填自己在tucodec注册账号对应的secret和secret+1.至于串流的原因，请参阅wiki里面的《服务器设计说明》
 
+## QQ群号：439106059
+
